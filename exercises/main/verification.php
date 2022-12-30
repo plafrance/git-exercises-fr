@@ -3,7 +3,7 @@ namespace GitExercises\hook\verifications;
 
 use GitExercises\hook\AbstractVerification;
 
-class Master extends AbstractVerification
+class Main extends AbstractVerification
 {
     private static $expectedContent = 'test';
 
