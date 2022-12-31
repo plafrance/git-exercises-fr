@@ -1,7 +1,6 @@
-## Change a letter case in the filename of an already tracked file
+## Commiter un fichier
+Il y a deux fichiers créés dans le répertoire racine du projet - `A.txt` et `B.txt`.
 
-You have committed a `File.txt` but then you realized the filename should
-be all lowercase: `file.txt`. Change the filename.
+Le but est de ne valider qu'un seul d'entre eux.
 
-This one is tricky on Windows, or in any filesystem that treats `File.txt`
-and `file.txt` as the same files.
+REMARQUE : N'oubliez pas que vous pouvez soumettre vos solutions avec la commande `git verify` au lieu de `git push`.
