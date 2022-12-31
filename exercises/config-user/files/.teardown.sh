@@ -1,3 +1,5 @@
+#!/bin/bash
+
 name=$(git config --get user.prevname)
 email=$(git config --get user.prevemail)
 

@@ -1,3 +1,5 @@
+#!/bin/bash
+
 name=$(git config --get --local user.name)
 prevname=$(git config --get --local user.prevname)
 [ "$name" == "" ] || echo "Pas de nom configuré"
