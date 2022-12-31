@@ -4,6 +4,7 @@ namespace GitExercises\hook\verifications;
 use GitExercises\hook\AbstractVerification;
 use GitExercises\hook\utils\GitUtils;
 use GitExercises\hook\utils\ConsoleUtils;
+use GitExercises\services\CommitterService;
 
 class ConfigUser extends AbstractVerification
 {
@@ -15,6 +16,8 @@ class ConfigUser extends AbstractVerification
         $email = GitUtils::getCommitterEmail($commit);
 
         $this->ensure( $email != "you@example.com" && $name != "Your Name", "Les nom et courriel n'ont pas été configurés" );
-        $this->ensure( $name == CommiterService::getMostRecentName($email), "Le nom ne correspond pas à celui des exercices précédents." );
+        $id = (new CommitterService())->getCommitterId($email);
+        $previousName = (new CommitterService())->getMostRecentName($id);
+        $this->ensure( $name == $previousName, "Le nom ne correspond pas à celui des exercices précédents ($name != $previousName)." );
     }
 }
