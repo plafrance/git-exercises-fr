@@ -1,8 +1,8 @@
-name=$(git config --get user.prev_name)
-email=$(git config --get user.prev_email)
+name=$(git config --get user.prevname)
+email=$(git config --get user.prevemail)
 
 git config user.name "$name"
 git config user.email "$email"
 
-git config --unset user.prev_name
-git config --unset user.prev_email
+git config --unset user.prevname
+git config --unset user.prevemail
