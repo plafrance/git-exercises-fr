@@ -1,8 +1,10 @@
 name=$(git config --get --local user.name)
 prevname=$(git config --get --local user.prevname)
-[ $name == $prevname ] || echo "Pas de nom configuré"
+[ "$name" == "" ] || echo "Pas de nom configuré"
+[ "$name" == "$prevname" ] || echo "Le nom devrait être $prevname"
 
 email=$(git config --get --local user.email)
 prevemail=$(git config --get --local user.prevemail)
-[ $email == $prevemail ] || echo "Pas de courriel configuré"
+[ "$email" == "" ] || echo "Pas de courriel configuré"
+[ "$email" == "$prevemail" ] || echo "Le courriel devrait être $prevemail"
 
