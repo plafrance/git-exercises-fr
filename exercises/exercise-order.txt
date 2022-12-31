@@ -1,6 +1,6 @@
 main
-commit-one-file
 config-user
+commit-one-file
 commit-one-file-staged
 ignore-them
 chase-branch

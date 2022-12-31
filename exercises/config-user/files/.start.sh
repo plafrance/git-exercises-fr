@@ -1,6 +1,9 @@
 name=$(git config --get user.name)
 email=$(git config --get user.email)
 
+git config user.prev_name "$name"
+git config user.prev_email "$email"
+
 git config user.name "Your Name"
 git config user.email "you@example.com"
 
