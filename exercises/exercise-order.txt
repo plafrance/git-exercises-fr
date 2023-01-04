@@ -4,6 +4,7 @@ add-one-file
 commit-one-file
 commit-multiple-files
 commit-one-file-staged
+add-new-changes
 ignore-them
 chase-branch
 merge-conflict
