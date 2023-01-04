@@ -10,7 +10,8 @@ class CommitMultipleFiles extends AbstractVerification
     protected function doVerify()
     {
         $commit = $this->ensureCommitsCount(1);
-        $files = $this->ensureFilesCount($commit, 3);
-        $this->ensure($files == ['hello.py', 'calc.py', 'RUN.txt'], 'The wrong files have been commited. Expected "hello.py", "calc.py" and "RUN.txt" bet received %s.', [ConsoleUtils::blue($file)]);
+        $this->ensureFilesCount($commit, 3);
+        $filenames = $this->getFilenames($commit);
+        $this->ensure($filenames == ['hello.py', 'calc.py', 'RUN.txt'], 'The wrong files have been commited. Expected "hello.py", "calc.py" and "RUN.txt" bet received %s.', [ConsoleUtils::blue(json_encode($filenames))]);
     }
 }

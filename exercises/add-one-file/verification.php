@@ -10,7 +10,8 @@ class AddOneFile extends AbstractVerification
     protected function doVerify()
     {
         $commit = $this->ensureCommitsCount(1);
-        $files = $this->ensureFilesCount($commit, 1);
-        $this->ensure($files == ['nouveau.txt'], 'The wrong file was commited. Expected "nouveau.txt" bet received %s.', [ConsoleUtils::blue($file)]);
+        $this->ensureFilesCount($commit, 1);
+        $filenames = $this->getFilenames($commit);
+        $this->ensure($filenames[0] == 'nouveau.txt', 'The wrong file was commited. Expected "nouveau.txt" bet received %s.', [ConsoleUtils::blue($filenames[0])]);
     }
 }
