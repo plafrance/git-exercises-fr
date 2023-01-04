@@ -2,14 +2,14 @@ err=0
 
 for fichier in hello.py calc.py RUN.txt
 do
-    if ! git ls-files | grep -q $fichier
+    if ! git diff --cached --name-only | grep -q $fichier
     then
     	echo "Le fichier $fichier n'a pas été ajouté à la zone de préparation"
     	err=1
     fi
 done
 
-for fichier in $(git ls-files)
+for fichier in $(git diff --cached --name-only)
 do
     if echo hello.py calc.py RUN.txt | grep -qv $fichier 
     then

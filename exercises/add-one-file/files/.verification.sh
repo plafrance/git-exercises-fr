@@ -1,12 +1,12 @@
 err=0
 
-if [ "$(git ls-files)" == "" ]
+if [ "$(git diff --cached --name-only)" == "" ]
 then
 	echo "Le fichier nouveau.txt n'a pas été ajouté à la zone de préparation"
 	err=1
 fi
 
-if [ $err -eq 0 -a "$(git ls-files)" != "nouveau.txt" ]
+if [ $err -eq 0 -a "$(git diff --cached --name-only)" != "nouveau.txt" ]
 then
 	echo Seulement le fichier nouveau.txt doit être ajouté à la zone de préparation
 	err=2
