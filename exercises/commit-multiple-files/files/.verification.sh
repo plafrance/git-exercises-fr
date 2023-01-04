@@ -21,7 +21,5 @@ done
 if [ $err -gt 0 ]
 then
 	exit $err
-else
-	git commit -m "Fichiers ajoutés à la zone de préparation" &>/dev/null
 fi
    
