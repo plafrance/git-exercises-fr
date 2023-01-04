@@ -16,7 +16,7 @@ class AddNewChanges extends AbstractVerification
         $message = GitUtils::getCommitSubject($commit);
         $this->ensure($message == "Traduction du message de bienvenue", "Mauvais message. Attendu : «Traduction du message de bienvenue», reçu : «%s»", [ConsoleUtils::blue($message)]);
 
-        $contenu_attendu = '  cout << "Bonjour tout le monde!!';
+        $contenu_attendu = '  cout << "Bonjour tout le monde!!"';
         $contents = $this->getFileContent($commit, "helloworld.cpp")[4];
         $this->ensure($contents == $contenu_attendu, "Le fichier ne contient pas les derniers changements\nAttendu: %s\nReçu: %s", [$contenu_attendu, $contents]);
     }
