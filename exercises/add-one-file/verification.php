@@ -5,7 +5,7 @@ use GitExercises\hook\AbstractVerification;
 use GitExercises\hook\utils\ConsoleUtils;
 use GitExercises\hook\utils\GitUtils;
 
-class CommitOneFile extends AbstractVerification
+class AddOneFile extends AbstractVerification
 {
     protected function doVerify()
     {
