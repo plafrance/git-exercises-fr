@@ -13,5 +13,8 @@ class CommitMultipleFiles extends AbstractVerification
         $this->ensureFilesCount($commit, 3);
         $filenames = $this->getFilenames($commit);
         $this->ensure(!array_diff( $filenames, ['hello.py', 'calc.py', 'RUN.txt']), 'The wrong files have been commited. Expected "hello.py", "calc.py" and "RUN.txt" bet received %s.', [ConsoleUtils::blue(json_encode($filenames))]);
+        $message = GitUtils::getCommitSubject($commit);
+        $this->ensure($message == "Ajout des programmes de calcul et des instructions d'exécution.", "Mauvais message. Attendu : «Ajout des programmes de calcul et des instructions d'exécution.», reçu : «%s»", [ConsoleUtils::blue($message)]);
+
     }
 }
