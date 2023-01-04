@@ -10,3 +10,4 @@ prevemail=$(git config --get --local user.prevemail)
 [ "$email" != "" ] || ( echo "Pas de courriel configuré" && exit 1 )
 [ "$email" == "$prevemail" ] || ( echo "Le courriel devrait être $prevemail" && exit 1 )
 
+git commit -m "Commit avec un nom et courriel configurés."
