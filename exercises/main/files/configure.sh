@@ -7,7 +7,7 @@ git config --local alias.start "! f() { \
     exercise=\${1-\$currentBranch}; \
     if [ \$exercise != HEAD ]; \
     then \
-        [ ! -f ./.teardown.sh ] || ./.teardown.sh; \
+        [ ! -f .teardown.sh ] || ./.teardown.sh; \
         if [ \$exercise != next ]; \
          then \
              if git show origin/\$exercise:.start.sh >/dev/null 2>&1 ; \
@@ -44,7 +44,7 @@ git config --local alias.verify "! f() { \
             if ! (git status | grep 'up-to-date' >/dev/null 2>&1 || git status | grep 'up to date' >/dev/null 2>&1) ; \
             then \
                 echo \"Verifying the \$exercise exercise. Hold on...\"; \
-                if [ ! -f ./.verification.sh ] || ./.verification.sh; \
+                if [ ! -f .verification.sh ] || ./.verification.sh; \
                 then \
                    if ! git push -f origin HEAD:\$exercise 2>&1 | sed -n '/\\*\\*\\*/,/\\*\\*\\*/p' | sed 's/remote: //g' | grep -v \"\\*\\*\" ; \
                    then \
