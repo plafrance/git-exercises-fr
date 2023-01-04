@@ -17,6 +17,6 @@ class AddNewChanges extends AbstractVerification
         $this->ensure($message == "Traduction du message de bienvenue", "Mauvais message. Attendu : «Traduction du message de bienvenue», reçu : «%s»", [ConsoleUtils::blue($message)]);
 
         $contents = $this->getFileContent($commit, "helloworld.cpp");
-        $this->ensure($contents == '#include <iostream>\n\nint main(int argc, char *argv[])\n{\n  cout << "Bonjour tout le monde!";\n  return 0;\n}\n', "Le fichier ne contient pas les derniers changements\nAttendu: %s\nReçu: %s", ["Traduction du message de bienvenue", $contents]);
+        $this->ensure(implode($contents) == '#include <iostream>\n\nint main(int argc, char *argv[])\n{\n  cout << "Bonjour tout le monde!";\n  return 0;\n}\n', "Le fichier ne contient pas les derniers changements\nAttendu: %s\nReçu: %s", ["Traduction du message de bienvenue", $contents]);
     }
 }
