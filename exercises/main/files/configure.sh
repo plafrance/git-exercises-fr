@@ -41,18 +41,18 @@ git config --local alias.verify "! f() { \
     then \
         if git show origin/\$exercise:.start.sh >/dev/null 2>&1 ; \
         then \
-            if ! (git status | grep 'up-to-date' >/dev/null 2>&1 || git status | grep 'up to date' >/dev/null 2>&1) ; \
+            if [ ! -f .verification.sh ] || ./.verification.sh; \
             then \
-                echo \"Verifying the \$exercise exercise. Hold on...\"; \
-                if [ ! -f .verification.sh ] || ./.verification.sh; \
+                if ! (git status | grep 'up-to-date' >/dev/null 2>&1 || git status | grep 'up to date' >/dev/null 2>&1) ; \
                 then \
+                   echo \"Verifying the \$exercise exercise. Hold on...\"; \
                    if ! git push -f origin HEAD:\$exercise 2>&1 | sed -n '/\\*\\*\\*/,/\\*\\*\\*/p' | sed 's/remote: //g' | grep -v \"\\*\\*\" ; \
                    then \
                        echo 'Solution could not be verified - push failed.' && echo 'Do you have an internet connection?'; \
                    fi; \
+                else \
+                    echo \"You haven't made any progress on exercise \$exercise.\" && echo 'Did you forget to commit your changes?'; \
                 fi; \
-            else \
-                echo \"You haven't made any progress on exercise \$exercise.\" && echo 'Did you forget to commit your changes?'; \
             fi; \
         else \
             echo \"Invalid exercise: \$exercise\"; \
