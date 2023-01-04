@@ -1,3 +1,4 @@
+#!/bin/bash
 err=0
 
 if [ "$(git diff --cached --name-only)" == "" ]

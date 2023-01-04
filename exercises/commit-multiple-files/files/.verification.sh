@@ -1,3 +1,4 @@
+#!/bin/bash
 err=0
 
 for fichier in hello.py calc.py RUN.txt
