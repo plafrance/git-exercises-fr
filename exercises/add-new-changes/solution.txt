@@ -1,0 +1,2 @@
+git add helloworld.cpp
+git commit -m "Traduction du message de bienvenue"
