@@ -5,6 +5,7 @@ commit-one-file
 commit-multiple-files
 commit-one-file-staged
 add-new-changes
+commit-only-tracked-files
 ignore-them
 chase-branch
 merge-conflict
