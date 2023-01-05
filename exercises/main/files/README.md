@@ -7,7 +7,7 @@ Utiliser `git start` pour réinitialiser un exercice.
 
 Utiliser `git start next` pour passer à l'exercice suivant.
 
-Utiliser `git start <exercice>` pour passer à l'exercice *<exercice>*.
+Utiliser `git start <exercice>` pour passer à l'exercice *exercice*.
 
 Essayez la commande `git verify` et réjouissez-vous de votre premier succès!
 
