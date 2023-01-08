@@ -1,7 +1,7 @@
 #!/bin/bash
 err=0
 
-for f in A B C
+for fichier in A B C
 do
     if ! git ls-files | grep -q $fichier
     then
@@ -10,7 +10,7 @@ do
     fi
 done
 
-for fichier in $(git ls-files)
+for fichier in $(git ls-files *.txt)
 do
     if echo A.txt B.txt C.txt | grep -qv $fichier 
     then
