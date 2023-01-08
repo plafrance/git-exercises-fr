@@ -1,7 +1,7 @@
 #!/bin/bash
 err=0
 
-for fichier in A B C
+for fichier in A.txt B.txt C.txt
 do
     if ! git ls-files | grep -q $fichier
     then
