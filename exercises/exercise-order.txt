@@ -1,6 +1,7 @@
 main
 config-user
 add-one-file
+add-some-files
 commit-one-file
 commit-multiple-files
 commit-one-file-staged
