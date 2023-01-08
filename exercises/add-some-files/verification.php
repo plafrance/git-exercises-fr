@@ -12,6 +12,6 @@ class AddSomeFiles extends AbstractVerification
         $commit = $this->ensureCommitsCount(1);
         $this->ensureFilesCount($commit, 3);
         $filenames = $this->getFilenames($commit);
-        $this->ensure(!array_diff( $filenames, ['A.txt', 'B.txt', 'C.txt'], 'The wrong file was commited. Expected "nouveau.txt" bet received %s.', [ConsoleUtils::blue($filenames[0])]);
+        $this->ensure(!array_diff( $filenames, ['A.txt', 'B.txt', 'C.txt'] ), 'The wrong file was commited. Expected "nouveau.txt" bet received %s.', [ConsoleUtils::blue($filenames[0])]);
     }
 }
