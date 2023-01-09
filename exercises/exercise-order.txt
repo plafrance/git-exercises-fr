@@ -7,6 +7,7 @@ commit-multiple-files
 commit-one-file-staged
 add-new-changes
 commit-only-tracked-files
+new-branch
 ignore-them
 chase-branch
 merge-conflict
