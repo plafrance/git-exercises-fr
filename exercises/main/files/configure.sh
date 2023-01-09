@@ -9,7 +9,7 @@ git config --local alias.start "! f() { \
         if [ \$exercise != next ]; \
         then \
          	 [ ! -f .teardown.sh ] || ./.teardown.sh &>/dev/null; \
-             if git show origin/\$exercise:.start.sh &>/dev/null; \
+             if git show origin/\$exercise:.start.sh >/dev/null 2>&1; \
              then \
                   if git checkout -f \$exercise >/dev/null 2>&1 && git reset --hard origin/\$exercise >/dev/null 2>&1 && git clean -fdx >/dev/null ; \
                    then \
