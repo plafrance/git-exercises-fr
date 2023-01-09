@@ -11,6 +11,7 @@ new-branch
 ignore-them
 chase-branch
 merge-conflict
+more-conflicts
 save-your-work
 change-branch-history
 remove-ignored
