@@ -2,15 +2,14 @@
 
 # Configure "git start" local alias for starting the exercise of user's choice and restarting the current one.
 git config --local alias.start "! f() { \
-    export LC_ALL=C; \
     currentBranch=\$(git rev-parse --abbrev-ref HEAD); \
     exercise=\${1-\$currentBranch}; \
     if [ \$exercise != HEAD ]; \
     then \
         if [ \$exercise != next ]; \
         then \
-         	 [ ! -f .teardown.sh ] || ./.teardown.sh; \
-             if git show origin/\$exercise:.start.sh >/dev/null 2>&1 ; \
+         	 [ ! -f .teardown.sh ] || ./.teardown.sh &>/dev/null; \
+             if git show origin/\$exercise:.start.sh &>/dev/null; \
              then \
                   if git checkout -f \$exercise >/dev/null 2>&1 && git reset --hard origin/\$exercise >/dev/null 2>&1 && git clean -fdx >/dev/null ; \
                    then \
@@ -34,7 +33,6 @@ git config --local alias.start "! f() { \
 
 # Add "git verify" local alias for submitting exercises solutions.
 git config --local alias.verify "! f() { \
-    export LC_ALL=C; \
     currentBranch=\$(git rev-parse --abbrev-ref HEAD); \
     exercise=\${1-\$currentBranch}; \
     if [ \$exercise != HEAD ]; \
@@ -43,7 +41,7 @@ git config --local alias.verify "! f() { \
         then \
             if [ ! -f .verification.sh ] || ./.verification.sh; \
             then \
-                if ! (git status | grep 'up-to-date' >/dev/null 2>&1 || git status | grep 'up to date' >/dev/null 2>&1) ; \
+                if ! (LC_ALL=C git status | grep 'up-to-date' >/dev/null 2>&1 || git status | grep 'up to date' >/dev/null 2>&1) ; \
                 then \
                    echo \"Verifying the \$exercise exercise. Hold on...\"; \
                    if ! git push -f origin HEAD:\$exercise 2>&1 | sed -n '/\\*\\*\\*/,/\\*\\*\\*/p' | sed 's/remote: //g' | grep -v \"\\*\\*\" ; \
