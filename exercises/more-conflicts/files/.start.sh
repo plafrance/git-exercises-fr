@@ -208,7 +208,7 @@ EOF
 git add additions.txt subs.txt
 git commit -m "Add equations without numbers"
 
-git checkout -b another-piece-of-work
+git checkout -b double-check
 cat > additions.txt <<EOF
 934 + 6339 = 7273
 18505 + 17201 = 35706
@@ -622,3 +622,5 @@ cat > subs.txt <<EOF
 25203 - 11043 = 14160
 EOF
 git commit -am "Les additions et soustractions sont faites"
+
+git merge -s recursive -X diff-algorithm=minimal double-check
