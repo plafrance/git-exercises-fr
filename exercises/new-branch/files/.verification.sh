@@ -10,6 +10,6 @@ then
 	if ! git push -f origin new-branch 2>&1 | sed -n '/\*\*\*/,/\*\*\*/p' | sed 's/remote: //g' | grep -v "\*\*"
 	then
 		echo "new branch n'existe pas"
-		exit 1
 	fi
+	exit 1
 fi
