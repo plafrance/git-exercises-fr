@@ -9,6 +9,6 @@ class NewBranch extends AbstractVerification
 {
     protected function doVerify()
     {
-        $commit = $this->ensureCommitsCount(0);
+        $commit = $this->ensureCommitsCount(1);
     }
 }
