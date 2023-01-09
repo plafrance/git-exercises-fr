@@ -7,6 +7,9 @@ exercise=${1-$currentBranch};
 
 if [ $exercise = "old-branch" ]
 then
-	git push -f origin HEAD:new-branch 2>&1 | sed -n '/\*\*\*/,/\*\*\*/p' | sed 's/remote: //g' | grep -v "\*\*"
-	exit 1
+	if ! git push -f origin new-branch 2>&1 | sed -n '/\*\*\*/,/\*\*\*/p' | sed 's/remote: //g' | grep -v "\*\*"
+	then
+		echo "new branch n'existe pas"
+		exit 1
+	fi
 fi
