@@ -14,7 +14,7 @@ class ModifyDeleteConflict extends AbstractVerification
         $this->ensure(count($parents) == 2, 'The last commit should be a merge commit.');
 
 
-        $files = GitUtils::getChangedFiles($commits[0], $commits[3]);
+        $files = GitUtils::getChangedFiles($commits[3], $commits[0]);
         $this->ensure(count( $files ) == 2, "Two files should have been changed, %s were", [count($files)]);
         $this->ensure(isset($files['supprimer.txt']), "You were supposed to remove supprimer.txt file.");
         $this->ensure($files['supprimer.txt'] == 'D', "You were supposed to remove supprimer.txt file, not change it.");
