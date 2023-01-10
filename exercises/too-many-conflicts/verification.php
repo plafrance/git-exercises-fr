@@ -3,6 +3,7 @@ namespace GitExercises\hook\verifications;
 
 use GitExercises\hook\AbstractVerification;
 use GitExercises\hook\utils\GitUtils;
+use GitExercises\hook\utils\ConsoleUtils;
 
 class TooManyConflicts extends AbstractVerification
 {
