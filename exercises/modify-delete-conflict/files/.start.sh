@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 
 echo à modifier > conserver.txt
-echo à modifier > supprimer.txt
+echo à supprimer > supprimer.txt
 
 git add conserver.txt supprimer.txt
 git commit -m "origine"
 
 git checkout -b autre
 
-echo modification faite > supprimer.txt
+echo Ceci devrait être supprimé > supprimer.txt
 git add supprimer.txt
 git rm conserver.txt
 git commit -m "Autres modifications"
