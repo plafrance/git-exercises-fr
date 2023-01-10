@@ -13,9 +13,9 @@ class ModifyDeleteConflict extends AbstractVerification
         $parents = GitUtils::getParents($mergeCommit);
         $this->ensure(count($parents) == 2, 'The last commit should be a merge commit.');
 
-        $file = $this->ensureFilesCount($commit, 2);
+        $this->ensureFilesCount($mergeCommit, 2);
 
-        $files = GitUtils::getChangedFiles($commit);
+        $files = GitUtils::getChangedFiles($mergeCommit);
         $this->ensure(isset($files['supprimer.txt']), "You were supposed to remove ignored.txt file.");
         $this->ensure($files['supprimer.txt'] == 'D', "You were supposed to remove ignored.txt file, not change it.");
         $this->ensure(isset($files['conserver.txt']), "You were supposed to modify ignored.txt file.");
