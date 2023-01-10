@@ -2,4 +2,4 @@
 
 git checkout more-conflicts
 git branch -D double-check
-git config --local unset merge.conflictstyle
+git config --local --unset merge.conflictstyle
