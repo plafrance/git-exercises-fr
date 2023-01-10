@@ -626,4 +626,4 @@ EOF
 git commit -am "Les additions et soustractions sont faites"
 
 git config --local merge.conflictstyle merge
-git merge -s recursive -X diff-algorithm=minimal double-check
+git merge -s recursive -X diff-algorithm=minimal double-check || true
