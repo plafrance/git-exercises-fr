@@ -421,7 +421,7 @@ EOF
 
 git commit -am "Complété les calculs"
 
-git checkout more-conflicts
+git checkout too-many-conflicts
 cat > additions.txt <<EOF
 934 + 6339 = 7273
 18505 + 17201 = 35706
