@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 
-touch canari
-git add canari
-git commit -m "point de retour"
-
 cat > additions.txt <<EOF
 934 + 6339 = ??
 18505 + 17201 = ??

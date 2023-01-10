@@ -8,10 +8,8 @@ class TooManyConflicts extends AbstractVerification
 {
     protected function doVerify()
     {
-        $mergeCommit = $this->ensureCommitsCount(1)[0];
-        $file = $this->ensureFilesCount($commit, 1);
-        $this->ensure($file == 'canari', 'This file should not have been commited : %s', [ConsoleUtils::blue($file)]);
+        $this->ensureCommitsCount(1);
         $message = GitUtils::getCommitSubject($commit);
-        $this->ensure($message == 'point de retour', 'This should not have been commited : %s', [ConsoleUtils::blue($message)]);
+        $this->ensure($message == 'Les additions et soustractions sont faites', 'This should not have been commited : %s', [ConsoleUtils::blue($message)]);
     }
 }
