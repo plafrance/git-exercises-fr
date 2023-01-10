@@ -16,9 +16,9 @@ class ModifyDeleteConflict extends AbstractVerification
 
         $files = GitUtils::getChangedFiles($commits[0], $commits[3]);
         $this->ensure(count( $files ) == 2, "Two files should have been changed, %s were", [count($files)]);
-        $this->ensure(isset($files['supprimer.txt']), "You were supposed to remove ignored.txt file.");
-        $this->ensure($files['supprimer.txt'] == 'D', "You were supposed to remove ignored.txt file, not change it.");
-        $this->ensure(isset($files['conserver.txt']), "You were supposed to modify ignored.txt file.");
-        $this->ensure($files['conserver.txt'] == 'M', "You were supposed to modify ignored.txt file, not delete it.");
+        $this->ensure(isset($files['supprimer.txt']), "You were supposed to remove supprimer.txt file.");
+        $this->ensure($files['supprimer.txt'] == 'D', "You were supposed to remove supprimer.txt file, not change it.");
+        $this->ensure(isset($files['conserver.txt']), "You were supposed to modify conserver.txt file.");
+        $this->ensure($files['conserver.txt'] == 'M', "You were supposed to modify conserver.txt file, not delete it.");
     }
 }
