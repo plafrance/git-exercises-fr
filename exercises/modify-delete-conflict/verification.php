@@ -9,13 +9,13 @@ class ModifyDeleteConflict extends AbstractVerification
 {
     protected function doVerify()
     {
-        $mergeCommit = $this->ensureCommitsCount(4)[0];
-        $parents = GitUtils::getParents($mergeCommit);
+        $commits = $this->ensureCommitsCount(4);
+        $parents = GitUtils::getParents($commits[0]);
         $this->ensure(count($parents) == 2, 'The last commit should be a merge commit.');
 
-        $this->ensureFilesCount($mergeCommit, 2);
 
-        $files = GitUtils::getChangedFiles($mergeCommit);
+        $files = GitUtils::getChangedFiles($commits[0], $commits[3]);
+        $this->ensure(array_length( $files, 2 ));
         $this->ensure(isset($files['supprimer.txt']), "You were supposed to remove ignored.txt file.");
         $this->ensure($files['supprimer.txt'] == 'D', "You were supposed to remove ignored.txt file, not change it.");
         $this->ensure(isset($files['conserver.txt']), "You were supposed to modify ignored.txt file.");
