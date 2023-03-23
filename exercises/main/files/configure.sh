@@ -41,7 +41,7 @@ git config --local alias.verify "! f() { \
         then \
             if [ ! -f .verification.sh ] || ./.verification.sh; \
             then \
-                if ! (LC_ALL=C git status | grep 'up-to-date' >/dev/null 2>&1 || git status | grep 'up to date' >/dev/null 2>&1) ; \
+                if ! (LC_ALL=C git status | grep -E 'up.to.date' >/dev/null 2>&1 ) ; \
                 then \
                    echo \"Verifying the \$exercise exercise. Hold on...\"; \
                    if ! git push -f origin HEAD:\$exercise 2>&1 | sed -n '/\\*\\*\\*/,/\\*\\*\\*/p' | sed 's/remote: //g' | grep -v \"\\*\\*\" ; \

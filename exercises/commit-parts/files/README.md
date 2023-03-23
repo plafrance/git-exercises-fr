@@ -1,4 +1,4 @@
-## Commettre une partie du travail
+## Valider une partie du travail
 
 Vous travaillez sur un problème depuis longtemps et vous avez remarqué que vous en avez trop fait. 
 Vous voulez que votre travail soit commité en deux commits séparés au lieu d'un seul.
