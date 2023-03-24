@@ -1,0 +1,3 @@
+git add conserver.txt
+git rm supprimer.txt
+git commit --no-edit
